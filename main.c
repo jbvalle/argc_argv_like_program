@@ -3,11 +3,11 @@
 #include <string.h>
 int main(void){
     char **args = (char**)malloc(100*sizeof(char));
-    char temp[100], input_string[100], letter;
+    char buff[100], input_string[100], letter;
     
     for(int i = 0; i < 100; i++){
         
-        temp[i] = '\0';
+        buff[i] = '\0';
         input_string[i] = '\0';
     }
     for(int i = 0; (letter = getchar())!='\n'; i++){
@@ -20,10 +20,10 @@ int main(void){
         if((input_string[i] == ' ')||(input_string[i]=='\0')){
             //reset j = 0
             j = 0;
-            args[args_num] = malloc(strlen(temp+1));
-            strcpy(args[args_num++],temp);
-            for(int i = 0; i < 100; i++)temp[i] = '\0';
-        }else temp[j++] = input_string[i];
+            args[args_num] = malloc(strlen(buff+1));
+            strcpy(args[args_num++],buff);
+            for(int i = 0; i < 100; i++)buff[i] = '\0';
+        }else buff[j++] = input_string[i];
         
     }    
     
